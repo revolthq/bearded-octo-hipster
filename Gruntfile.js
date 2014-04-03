@@ -68,31 +68,13 @@ module.exports = function(grunt) {
     },
 
     imagemin: {
-      png: {
-        options: {
-          optimizationLevel: 7
-        },
-        dynamic: [
-          {
-            expand: true,
-            cwd: PATH_ASSETS + '/img',
-            src: ['**/*.png'],
-            dest: PATH_DEPLOY_ASSETS + '/img'
-          }
-        ]
-      },
-      jpg: {
-        options: {
-          progressive: true
-        },
-        dynamic: [
-          {
-            expand: true,
-            cwd: PATH_ASSETS + '/img',
-            src: ['**/*.jpg'],
-            dest: PATH_DEPLOY_ASSETS + '/img'
-          }
-        ]
+      dynamic: {                         // Another target
+        files: [{
+          expand: true,                  // Enable dynamic expansion
+          cwd: PATH_ASSETS_IMG,                   // Src matches are relative to this path
+          src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+          dest: PATH_DEPLOY_ASSETS + '/img'                  // Destination path prefix
+        }]
       }
     }
   });
