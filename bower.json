@@ -1,0 +1,16 @@
+{
+  "name": "revolt-site",
+  "version": "0.1.0",
+  "authors": [
+    "eabait <franco.monsalvo@gmail.com>"
+  ],
+  "description": "Revolt Website",
+  "dependencies": {
+    "modernizr": "2.7.1",
+    "font-awesome": "~4.0.3",
+    "jquery": "1.11.0",
+    "polyglot": "~0.3.0",
+    "semantic": "~0.14.0",
+    "normalize-css": "latest"
+  }
+}
