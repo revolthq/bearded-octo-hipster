@@ -2,9 +2,16 @@
 background: #183641 Greyish Blue;
 font-color: #f25f58 Orage Red; #D43A3F #BD403E
 background-yelloW: #EEECDA;
+font-color: #D2D0A7 Yellow; #DAD7AB
 **/
 
 body {
   background-color: #183641;
   color: #BD403E;
+}
+
+.ui.menu .item,
+.ui.menu .item.active {
+  color: #BD403E;
+  text-transform: uppercase;
 }
