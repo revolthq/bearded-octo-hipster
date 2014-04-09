@@ -1,8 +1,10 @@
 /**
 background: #183641 Greyish Blue;
-font-color: #f25f58 Orage Red;
+font-color: #f25f58 Orage Red; #D43A3F #BD403E
+background-yelloW: #EEECDA;
 **/
 
 body {
   background-color: #183641;
+  color: #BD403E;
 }
