@@ -1,17 +1,104 @@
 /**
 background: #183641 Greyish Blue;
 font-color: #f25f58 Orage Red; #D43A3F #BD403E
-background-yelloW: #EEECDA;
-font-color: #D2D0A7 Yellow; #DAD7AB
+background-yelloW: #F1EFE1;
+font-color: #CB5751 Yellow; #DAD7AB
 **/
 
 body {
   background-color: #183641;
-  color: #BD403E;
+  color: #CB5751;
+  width: 100%;
+  font-family: "Adelle", sans-serif;
+  box-sizing: border-box;
 }
 
+body.ui.grid {
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  position: relative;
+  height: 648px;
+  padding-top: 4.2rem !important;
+}
+
+.background-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: top center;
+  background-image: url('../img/claim.png');
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+}
+
+.ui.grid>.concept.row {
+  background-color: #F1EFE1;
+  padding: 13%;
+  font-size: 2rem;
+  box-sizing: border-box;
+}
+
+.ui.grid>.concept.row>.column {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.pathway {
+  background-size: cover;
+  background-position: top center;
+  background-image: url('../img/pathway_bgd.png');
+}
+
+/** overwrites **/
+
+.ui.menu {
+  margin: 0 1em 1em;
+}
 .ui.menu .item,
 .ui.menu .item.active {
   color: #BD403E;
   text-transform: uppercase;
+}
+
+.ui.text.menu {
+  text-shadow: 0px 1px 1px #000;
+  margin: 0 1.5rem;
+}
+
+.ui.grid > .row {
+  margin-top: 0;
+  height: 648px;
+}
+
+/** Fonts declaration **/
+@font-face {
+  font-family: "Adelle";
+  src: url("../fonts/Adelle_Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Adelle";
+  font-weight: bold;
+  src: url("../fonts/Adelle_Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Adelle";
+    src: url("../fonts/Adelle_Italic.otf") format("opentype");
+    font-style: italic, oblique;
+}
+@font-face {
+    font-family: "Adelle";
+    src: url("../fonts/Adelle_BoldItalic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic, oblique;
 }

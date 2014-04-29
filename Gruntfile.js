@@ -70,9 +70,10 @@ module.exports = function(grunt) {
     imagemin: {
       dynamic: {                         // Another target
         files: [{
+          optimizationLevel: 7,
           expand: true,                  // Enable dynamic expansion
           cwd: PATH_ASSETS_IMG,                   // Src matches are relative to this path
-          src: ['**/*.{png,jpg,gif,ico}'],   // Actual patterns to match
+          src: ['**/*.{png}'],   // Actual patterns to match
           dest: PATH_DEPLOY_ASSETS + '/img'                  // Destination path prefix
         }]
       }
@@ -94,5 +95,5 @@ module.exports = function(grunt) {
     'cssmin', 'imagemin']);
 
   grunt.registerTask('build:dev', ['clean', 'bower', 'jshint:all', 'copy',
-    'concat', 'cssmin']);
+    'concat', 'cssmin', 'imagemin']);
 };

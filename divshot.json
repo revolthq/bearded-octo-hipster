@@ -1,0 +1,7 @@
+{
+  "name": "revolt",
+  "root": "./public",
+  "clean_urls": true,
+  "cache_control": {},
+  "routes": {}
+}
