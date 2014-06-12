@@ -1,0 +1,25 @@
+/** overwrites **/
+
+.ui.menu {
+  margin: 0 1em 1em;
+}
+.ui.menu .item,
+.ui.menu .item.active {
+  color: #BD403E;
+  text-transform: uppercase;
+}
+
+.ui.text.menu {
+  text-shadow: 0px 1px 1px #000;
+  margin: 0 1.5rem;
+}
+
+.ui.grid > .row {
+  margin-top: 0;
+  height: 648px;
+}
+
+.ui.grid > .small.row {
+  margin-top: 0;
+  height: inherit;
+}

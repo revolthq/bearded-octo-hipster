@@ -1,0 +1,23 @@
+/** Fonts declaration **/
+@font-face {
+  font-family: "Adelle";
+  src: url("../fonts/Adelle_Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Adelle";
+  font-weight: bold;
+  src: url("../fonts/Adelle_Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Adelle";
+    src: url("../fonts/Adelle_Italic.otf") format("opentype");
+    font-style: italic, oblique;
+}
+@font-face {
+    font-family: "Adelle";
+    src: url("../fonts/Adelle_BoldItalic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic, oblique;
+}
