@@ -77,6 +77,21 @@ module.exports = function(grunt) {
           dest: PATH_DEPLOY_ASSETS + '/img'                  // Destination path prefix
         }]
       }
+    },
+    divshot: {
+      server: {
+        options: {
+          keepAlive: true,
+          port: 3474,
+          hostname: 'localhost',
+          root: './public',
+          clean_urls: false,
+          routes: {
+            '**': 'index.html'
+          },
+          cache_control: {}
+        }
+      }
     }
   });
 
@@ -88,6 +103,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-css');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-divshot');
 
   grunt.registerTask('default', 'build:dev');
 
