@@ -7,15 +7,16 @@
   },
   "repository": "https://github.com/revolthq/bearded-octo-hipster.git",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-imagemin": "~0.5.0",
-    "grunt-contrib-csslint": "~0.2.0",
-    "grunt-css": "~0.5.4",
-    "grunt-bower-task": "~0.3.4",
-    "grunt-divshot": "~0.3.3"
+    "grunt": "~0.4.5",
+    "grunt-bower-task": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-csslint": "latest",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-css": "latest",
+    "grunt-divshot": "latest",
+    "grunt-image-embed": "latest"
   }
 }

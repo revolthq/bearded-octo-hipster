@@ -1,23 +1,35 @@
 /** Fonts declaration **/
 @font-face {
   font-family: "Adelle";
-  src: url("../fonts/Adelle_Bold.otf") format("opentype");
+  src: url("../fonts/Adelle_Regular.eot?#iefix") format("embedded-opentype"),
+       url('../fonts/Adelle_Regular.woff') format('woff'),
+       url('../fonts/Adelle_Regular.ttf')  format('truetype'),
+       url('../fonts/Adelle_Regular.svg#Adelle_Regular') format('svg');
 }
 
 @font-face {
   font-family: "Adelle";
   font-weight: bold;
-  src: url("../fonts/Adelle_Bold.otf") format("opentype");
+  src: url("../fonts/Adelle_Bold.eot?#iefix") format("embedded-opentype"),
+       url('../fonts/Adelle_Bold.woff') format('woff'),
+       url('../fonts/Adelle_Bold.ttf')  format('truetype'),
+       url('../fonts/Adelle_Bold.svg#Adelle_Bold') format('svg');
 }
 
 @font-face {
     font-family: "Adelle";
-    src: url("../fonts/Adelle_Italic.otf") format("opentype");
-    font-style: italic, oblique;
+    src: url("../fonts/Adelle_Italic.eot?#iefix") format("embedded-opentype"),
+       url('../fonts/Adelle_Italic.woff') format('woff'),
+       url('../fonts/Adelle_Italic.ttf')  format('truetype'),
+       url('../fonts/Adelle_Italic.svg#Adelle_Italic') format('svg');
+    font-style: italic;
 }
 @font-face {
     font-family: "Adelle";
-    src: url("../fonts/Adelle_BoldItalic.otf") format("opentype");
+    src: url("../fonts/Adelle_BoldItalic.eot?#iefix") format("embedded-opentype"),
+       url('../fonts/Adelle_BoldItalic.woff') format('woff'),
+       url('../fonts/Adelle_BoldItalic.ttf')  format('truetype'),
+       url('../fonts/Adelle_BoldItalic.svg#Adelle_BoldItalic') format('svg');
     font-weight: bold;
-    font-style: italic, oblique;
+    font-style: italic;
 }

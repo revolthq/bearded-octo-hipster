@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   var PATH_ASSETS = 'src';
   var PATH_ASSETS_JS = PATH_ASSETS + '/js';
   var PATH_ASSETS_CSS = PATH_ASSETS + '/css';
-  var PATH_ASSETS_IMG = PATH_ASSETS + '/img';
+  var PATH_ASSETS_IMG = PATH_ASSETS + '/img/';
   var PATH_DEPLOY_ASSETS = 'public';
 
   // ==========================================================================
@@ -42,9 +42,22 @@ module.exports = function(grunt) {
 
     concat: {
       css: {
-        src: ['src/vendor/normalize-css/normalize.css', 'src/vendor/semantic/build/packaged/css/semantic.css', PATH_ASSETS_CSS + '/*.css'],
+        src: [PATH_ASSETS_CSS + '/*.css'],
         dest: PATH_DEPLOY_ASSETS +
           '/css/<%= pkg.name %>-<%= pkg.version %>.concat.css'
+      }
+    },
+
+    imageEmbed: {
+      dist: {
+        src: [ PATH_DEPLOY_ASSETS +
+          '/css/<%= pkg.name %>-<%= pkg.version %>.concat.css' ],
+        dest: PATH_DEPLOY_ASSETS +
+          '/css/<%= pkg.name %>-<%= pkg.version %>.concat.embed.css',
+        options: {
+          deleteAfterEncoding : false,
+          maxImageSize: 0
+        }
       }
     },
 
@@ -73,8 +86,8 @@ module.exports = function(grunt) {
           optimizationLevel: 7,
           expand: true,                  // Enable dynamic expansion
           cwd: PATH_ASSETS_IMG,                   // Src matches are relative to this path
-          src: ['**/*.{png}'],   // Actual patterns to match
-          dest: PATH_DEPLOY_ASSETS + '/img'                  // Destination path prefix
+          src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+          dest: PATH_DEPLOY_ASSETS + '/img/'                  // Destination path prefix
         }]
       }
     },
@@ -104,12 +117,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-divshot');
+  grunt.loadNpmTasks('grunt-image-embed');
 
   grunt.registerTask('default', 'build:dev');
 
-  grunt.registerTask('build:prod', ['clean', 'bower', 'jshint:all', 'concat',
-    'cssmin', 'imagemin']);
+  grunt.registerTask('build:prod', ['clean', 'bower', 'jshint:all', 'csslint:lax', 'copy', 'concat',
+    'imageEmbed', 'cssmin', 'imagemin']);
 
-  grunt.registerTask('build:dev', ['clean', 'bower', 'jshint:all', 'copy',
-    'concat', 'cssmin', 'imagemin']);
+  grunt.registerTask('build:dev', ['clean', 'bower', 'jshint:all', 'csslint:lax', 'copy',
+    'concat', 'imageEmbed', 'imagemin']);
 };
