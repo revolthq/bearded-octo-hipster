@@ -45,6 +45,11 @@ module.exports = function(grunt) {
         src: [PATH_ASSETS_CSS + '/*.css'],
         dest: PATH_DEPLOY_ASSETS +
           '/css/<%= pkg.name %>-<%= pkg.version %>.concat.css'
+      },
+      js: {
+        src: [PATH_ASSETS_JS + '/*.js'],
+        dest: PATH_DEPLOY_ASSETS +
+          '/js/<%= pkg.name %>-<%= pkg.version %>.concat.js'
       }
     },
 
@@ -64,7 +69,7 @@ module.exports = function(grunt) {
     cssmin: {
       my_target: {
         src: PATH_DEPLOY_ASSETS +
-          '/css/<%= pkg.name %>-<%= pkg.version %>.concat.css',
+          '/css/<%= pkg.name %>-<%= pkg.version %>.concat.embed.css',
         dest: PATH_DEPLOY_ASSETS +
           '/css/<%= pkg.name %>.min-<%= pkg.version %>.css'
       }
@@ -81,13 +86,13 @@ module.exports = function(grunt) {
     },
 
     imagemin: {
-      dynamic: {                         // Another target
+      dynamic: {
         files: [{
           optimizationLevel: 7,
-          expand: true,                  // Enable dynamic expansion
-          cwd: PATH_ASSETS_IMG,                   // Src matches are relative to this path
-          src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-          dest: PATH_DEPLOY_ASSETS + '/img/'                  // Destination path prefix
+          expand: true,
+          cwd: PATH_ASSETS_IMG,
+          src: ['**/*.{png,jpg,gif}'],
+          dest: PATH_ASSETS_IMG
         }]
       }
     },
