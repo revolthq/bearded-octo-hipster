@@ -49,13 +49,14 @@ header {
   bottom: 0;
   background-size: cover;
   background-position: top center;
-  background-image: url('../img/background_claim.png');
+  background-image: url('../img/background_claim_ruler.png');
 }
 
 .logo {
   position: absolute;
   top: 0.5em;
   left: 1.5em;
+  width: 12em;
 }
 
 .ui.grid>.concept.row {
