@@ -130,5 +130,5 @@ module.exports = function(grunt) {
     'imageEmbed', 'cssmin', 'imagemin']);
 
   grunt.registerTask('build:dev', ['clean', 'bower', 'jshint:all', 'csslint:lax', 'copy',
-    'concat', 'imageEmbed', 'imagemin']);
+    'concat', 'imageEmbed', 'cssmin','imagemin']);
 };
