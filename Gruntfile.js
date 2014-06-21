@@ -6,6 +6,7 @@ module.exports = function(grunt) {
   var PATH_ASSETS_CSS = PATH_ASSETS + '/css';
   var PATH_ASSETS_IMG = PATH_ASSETS + '/img/';
   var PATH_DEPLOY_ASSETS = 'public';
+  var PATH_TEMP_ASSETS = 'tmp';
 
   // ==========================================================================
   // Project configuration
@@ -39,17 +40,55 @@ module.exports = function(grunt) {
       all: {
         src: [PATH_ASSETS_CSS + '/*.css']
       }
+    },
+
+    concat: {
+      css: {
+        src: [PATH_ASSETS_CSS + '/*.css'],
+        dest: PATH_TEMP_ASSETS +
+          '/css/<%= pkg.name %>-<%= pkg.version %>.concat.css'
+      },
+      js: {
+        src: [PATH_ASSETS_JS + '/*.js'],
+        dest: PATH_TEMP_ASSETS +
+          '/js/<%= pkg.name %>-<%= pkg.version %>.concat.js'
+      }
+    },
+
+    cssmin: {
+      minify: {
+        expand: true,
+        cwd: PATH_TEMP_ASSETS + '/css/',
+        src: ['<%= pkg.name %>-<%= pkg.version %>.concat.css'],
+        dest: PATH_DEPLOY_ASSETS + '/css/',
+        ext: '.min.css'
+      }
+    },
+
+    imagemin: {
+      all: {
+        files: [{
+          optimizationLevel: 7,
+          expand: true,
+          cwd: PATH_ASSETS_IMG,
+          src: ['**/*.{png,jpg,gif}'],
+          dest: PATH_ASSETS_IMG
+        }]
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   grunt.registerTask('default', 'build:dev');
 
-  grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all']);
+  grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin']);
 
-  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all']);
+  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin']);
 };

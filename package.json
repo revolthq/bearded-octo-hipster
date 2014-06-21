@@ -15,7 +15,7 @@
     "grunt-contrib-csslint": "latest",
     "grunt-contrib-imagemin": "latest",
     "grunt-contrib-jshint": "latest",
-    "grunt-css": "latest",
+    "grunt-contrib-cssmin": "latest",
     "grunt-divshot": "latest",
     "grunt-image-embed": "latest"
   }
