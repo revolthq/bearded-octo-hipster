@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   'use strict';
 
   var PATH_ASSETS = 'src';
-  var PATH_ASSETS_JS = PATH_ASSETS + '/js';
+  var PATH_ASSETS_JS = PATH_ASSETS + '/js/';
   var PATH_ASSETS_CSS = PATH_ASSETS + '/css';
   var PATH_ASSETS_IMG = PATH_ASSETS + '/img/';
   var PATH_DEPLOY_ASSETS = 'public';
@@ -65,6 +65,20 @@ module.exports = function(grunt) {
       }
     },
 
+    uglify: {
+      options: {
+        mangle: true
+      },
+      all: {
+        files: [{
+          expand: true,
+          cwd: PATH_TEMP_ASSETS + '/js/',
+          src: '**/*.js',
+          dest: PATH_DEPLOY_ASSETS + '/js'
+        }]
+      }
+    },
+
     imagemin: {
       all: {
         files: [{
@@ -85,10 +99,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('default', 'build:dev');
 
-  grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin']);
+  grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
 
-  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin']);
+  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
 };
