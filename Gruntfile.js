@@ -41,6 +41,11 @@ module.exports = function(grunt) {
         src: [PATH_ASSETS_CSS + '/*.css']
       }
     },
+    validation: {
+      files: {
+          src: ['src/*.html']
+      }
+    },
 
     concat: {
       css: {
@@ -97,6 +102,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-html-validation');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -104,7 +110,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', 'build:dev');
 
-  grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
+  grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'validation', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
 
-  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
+  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'validation', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
 };

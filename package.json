@@ -18,6 +18,7 @@
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-uglify": "^0.5.0",
     "grunt-divshot": "latest",
+    "grunt-html-validation": "^0.1.18",
     "grunt-image-embed": "latest"
   }
 }
