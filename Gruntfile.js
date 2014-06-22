@@ -74,7 +74,8 @@ module.exports = function(grunt) {
           expand: true,
           cwd: PATH_TEMP_ASSETS + '/js/',
           src: '**/*.js',
-          dest: PATH_DEPLOY_ASSETS + '/js'
+          dest: PATH_DEPLOY_ASSETS + '/js',
+          ext: '.min.js'
         }]
       }
     },
