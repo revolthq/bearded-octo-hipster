@@ -49,7 +49,9 @@ module.exports = function(grunt) {
 
     concat: {
       css: {
-        src: [PATH_ASSETS_CSS + '/*.css'],
+        src: ['src/vendor/normalize-css/normalize.css',
+              'src/vendor/semantic/build/packaged/css/semantic.css',
+              PATH_ASSETS_CSS + '/*.css'],
         dest: PATH_TEMP_ASSETS +
           '/css/<%= pkg.name %>-<%= pkg.version %>.concat.css'
       },
@@ -61,6 +63,9 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      options: {
+        keepSpecialComments: 0
+      },
       minify: {
         expand: true,
         cwd: PATH_TEMP_ASSETS + '/css/',
@@ -112,5 +117,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'validation', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
 
-  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'validation', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
+  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
 };
