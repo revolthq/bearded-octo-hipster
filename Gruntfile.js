@@ -14,7 +14,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    clean: [PATH_DEPLOY_ASSETS],
+    clean: [PATH_DEPLOY_ASSETS, PATH_TEMP_ASSETS],
 
     bower: {
       install: {
@@ -23,6 +23,15 @@ module.exports = function(grunt) {
            layout: 'byComponent',
            install: true
          }
+      }
+    },
+
+    copy: {
+      main: {
+        expand: true,
+        cwd: PATH_ASSETS,
+        src: ['*.html', 'img/**', 'fonts/**'],
+        dest: PATH_DEPLOY_ASSETS
       }
     },
 
@@ -41,6 +50,7 @@ module.exports = function(grunt) {
         src: [PATH_ASSETS_CSS + '/*.css']
       }
     },
+
     validation: {
       files: {
           src: ['src/*.html']
@@ -53,12 +63,12 @@ module.exports = function(grunt) {
               'src/vendor/semantic/build/packaged/css/semantic.css',
               PATH_ASSETS_CSS + '/*.css'],
         dest: PATH_TEMP_ASSETS +
-          '/css/<%= pkg.name %>-<%= pkg.version %>.concat.css'
+          '/css/<%= pkg.name %>-<%= pkg.version %>.css'
       },
       js: {
         src: [PATH_ASSETS_JS + '/*.js'],
         dest: PATH_TEMP_ASSETS +
-          '/js/<%= pkg.name %>-<%= pkg.version %>.concat.js'
+          '/js/<%= pkg.name %>-<%= pkg.version %>.js'
       }
     },
 
@@ -69,9 +79,10 @@ module.exports = function(grunt) {
       minify: {
         expand: true,
         cwd: PATH_TEMP_ASSETS + '/css/',
-        src: ['<%= pkg.name %>-<%= pkg.version %>.concat.css'],
+        src: ['<%= pkg.name %>-<%= pkg.version %>.css'],
         dest: PATH_DEPLOY_ASSETS + '/css/',
-        ext: '.min.css'
+        ext: '.min.css',
+        extDot: 'last'
       }
     },
 
@@ -85,7 +96,8 @@ module.exports = function(grunt) {
           cwd: PATH_TEMP_ASSETS + '/js/',
           src: '**/*.js',
           dest: PATH_DEPLOY_ASSETS + '/js',
-          ext: '.min.js'
+          ext: '.min.js',
+          extDot: 'last'
         }]
       }
     },
@@ -112,10 +124,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('default', 'build:dev');
 
-  grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'validation', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
+  grunt.registerTask('build:prod', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'validation', 'imagemin:all', 'concat', 'cssmin', 'uglify:all', 'copy']);
 
-  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin', 'uglify:all']);
+  grunt.registerTask('build:dev', ['clean', 'bower:install', 'jshint:all', 'csslint:all', 'imagemin:all', 'concat', 'cssmin', 'uglify:all', 'copy']);
 };
