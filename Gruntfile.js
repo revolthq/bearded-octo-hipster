@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       main: {
         expand: true,
         cwd: PATH_ASSETS,
-        src: ['*.html', 'img/**', 'fonts/**'],
+        src: ['*.html', 'img/**', 'fonts/**', 'vendor/modernizr/modernizr.js'],
         dest: PATH_DEPLOY_ASSETS
       }
     },

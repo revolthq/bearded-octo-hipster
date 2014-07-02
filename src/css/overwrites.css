@@ -12,6 +12,7 @@
 .ui.text.menu {
   text-shadow: 0 1px 1px #000;
   margin: 0 1.5rem;
+  padding-top: 4.5rem
 }
 
 .ui.grid > .row {
