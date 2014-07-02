@@ -17,10 +17,4 @@
 
 .ui.grid > .row {
   margin-top: 0;
-  height: 648px;
-}
-
-.ui.grid > .small.row {
-  margin-top: 0;
-  height: inherit;
 }
