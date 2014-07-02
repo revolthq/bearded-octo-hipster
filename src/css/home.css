@@ -11,6 +11,7 @@ body {
   width: 100%;
   font-family: "Adelle", sans-serif;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 body.ui.grid {
@@ -54,19 +55,19 @@ header {
 
 .logo {
   position: absolute;
-  top: 0.5em;
-  left: 1.5em;
-  width: 12em;
+  top: 0.5rem;
+  left: 1.5rem;
+  width: 12rem;
 }
 
-.ui.grid>.concept.row {
+.ui.grid > .concept.row {
   background-color: #F1EFE1;
   padding: 13%;
   font-size: 2rem;
   box-sizing: border-box;
 }
 
-.ui.grid>.concept.row>.column {
+.ui.grid > .concept.row > .column {
   text-align: center;
   font-size: 1.8rem;
 }
