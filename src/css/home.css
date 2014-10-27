@@ -81,3 +81,8 @@ header {
 .big-text {
   font-size: 1.35rem;
 }
+
+.coming-soon {
+  background: url('../img/spots.png') 0 0 no-repeat #183641;
+  background-size: cover;
+}
